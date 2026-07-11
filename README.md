@@ -1,1 +1,19 @@
-python3 -u main.py     --dataset seq-cifar10     --network resnet18_taskil     --batch_size 32     --lr 0.005     --num_clients 5     --num_comm_rounds 10    --num_epochs 5     --wandb False     --distribution_alpha 10     --model bi     --memory_size 500     --subsample_size 50  
+python3 -u main.py \
+    --dataset seq-cifar10 \
+    --network resnet18_taskil \
+    --batch_size 32 \
+    --lr 0.005 \
+    --num_clients 5 \
+    --num_comm_rounds 10 \
+    --num_epochs 5 \
+    --wandb False \
+    --distribution_alpha 10 \
+    --model bi \
+    --memory_size 500 \
+    --update_strategy balanced \
+    --sampling_strategy random \
+    --balanced_update uncertainty \
+    --uncertainty_score bregman \
+    --subsample_size 50 \
+    --balanced_step bottomk \
+    --step_str bottomk
