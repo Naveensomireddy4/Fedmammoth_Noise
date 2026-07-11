@@ -1,0 +1,525 @@
+/home/naveen/.local/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/naveen/.local/lib/python3.10/site-packages/timm/models/helpers.py:7: FutureWarning: Importing from timm.models.helpers is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/naveen/.local/lib/python3.10/site-packages/deeplake/util/check_latest_version.py:32: UserWarning: A newer version of deeplake (4.6.4) is available. It's recommended that you update to the latest version using `pip install -U deeplake`.
+  warnings.warn(
+
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⠀⠀⢀⣠⣴⡈⣡⣄⠉⣁⣉⢀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⢀⣠⣤⣼⣿⣿⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀
+    ⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣹⣿⣿⠀⠀⠀⠀
+    ⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢁⡀⠻⣿⣿⣿⡆⠀⡞⠀
+    ⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠘⢿⣦⡈⠛⠿⠃⣼⠃⠀
+    ⠀⢸⡿⣿⣿⣿⣿⣿⣿⠿⣿⣿⡿⠿⣿⣿⣿⣿⡟⠛⠁⠀⠙⠻⠷⠶⠟⠁⠀⠀
+    ⠀⠘⠁⢸⣿⣿⣿⣿⠃⠰⠛⠛⠋⠀⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⣶⣶⠀⠀⠀⠀
+    ⠀⠀⠀⢸⣿⣿⣿⡇⢰⣶⣿⠀⢸⡆⢸⣿⣿⣿⣟⠀⣀⣀⣠⣼⣿⡟⠀⠀⠀⠀
+    ⠀⠀⠀⢸⣿⣿⣿⡇⢸⣿⣿⠀⢸⣧⠈⣿⣿⣿⡿⠀⢿⣿⠿⠛⠉⠀⠀⠀⠀⠀
+    ⠀⠀⠀⢺⣿⣿⣿⠀⢸⣿⣿⠀⢸⣿⠀⢻⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠈⠉⠉⠉⠀⠈⠉⠉⠀⠈⠉⠁⠈⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    
+Using 16-bit Automatic Mixed Precision (AMP)
+
+==================== Splitting TRAIN ====================
+
+--- Task 0 ---
+[TRAIN] Task 0 summary:
+  Client 0: 2105 samples
+  Client 1: 2435 samples
+  Client 2: 1763 samples
+  Client 3: 1577 samples
+  Client 4: 2120 samples
+  → Total samples: 10000
+
+--- Task 1 ---
+[TRAIN] Task 1 summary:
+  Client 0: 1966 samples
+  Client 1: 1866 samples
+  Client 2: 2596 samples
+  Client 3: 2309 samples
+  Client 4: 1263 samples
+  → Total samples: 10000
+
+--- Task 2 ---
+[TRAIN] Task 2 summary:
+  Client 0: 1742 samples
+  Client 1: 2077 samples
+  Client 2: 1436 samples
+  Client 3: 2528 samples
+  Client 4: 2217 samples
+  → Total samples: 10000
+
+--- Task 3 ---
+[TRAIN] Task 3 summary:
+  Client 0: 2274 samples
+  Client 1: 1774 samples
+  Client 2: 2627 samples
+  Client 3: 1972 samples
+  Client 4: 1353 samples
+  → Total samples: 10000
+
+--- Task 4 ---
+[TRAIN] Task 4 summary:
+  Client 0: 2770 samples
+  Client 1: 2107 samples
+  Client 2: 2359 samples
+  Client 3: 1444 samples
+  Client 4: 1320 samples
+  → Total samples: 10000
+
+==================== Splitting TEST ====================
+
+--- Task 0 ---
+[TEST] Task 0 summary:
+  Client 0: 398 samples
+  Client 1: 377 samples
+  Client 2: 408 samples
+  Client 3: 413 samples
+  Client 4: 404 samples
+  → Total samples: 2000
+
+--- Task 1 ---
+[TEST] Task 1 summary:
+  Client 0: 436 samples
+  Client 1: 397 samples
+  Client 2: 378 samples
+  Client 3: 420 samples
+  Client 4: 369 samples
+  → Total samples: 2000
+
+--- Task 2 ---
+[TEST] Task 2 summary:
+  Client 0: 414 samples
+  Client 1: 407 samples
+  Client 2: 364 samples
+  Client 3: 435 samples
+  Client 4: 380 samples
+  → Total samples: 2000
+
+--- Task 3 ---
+[TEST] Task 3 summary:
+  Client 0: 390 samples
+  Client 1: 404 samples
+  Client 2: 394 samples
+  Client 3: 402 samples
+  Client 4: 410 samples
+  → Total samples: 2000
+
+--- Task 4 ---
+[TEST] Task 4 summary:
+  Client 0: 397 samples
+  Client 1: 409 samples
+  Client 2: 421 samples
+  Client 3: 372 samples
+  Client 4: 401 samples
+  → Total samples: 2000
+
+[TRAIN] TOTAL samples across all tasks & clients: 50000
+
+[TEST] TOTAL samples across all tasks & clients: 10000
+
+==================== DATA SPLIT DONE ====================
+
+==================== LABEL DISTRIBUTION ====================
+
+[TRAIN]
+
+Task 0:
+  Client 0 → [0:1076, 1:1029]
+  Client 1 → [0:853, 1:1582]
+  Client 2 → [0:808, 1:955]
+  Client 3 → [0:853, 1:724]
+  Client 4 → [0:1410, 1:710]
+
+Task 1:
+  Client 0 → [0:713, 1:1253]
+  Client 1 → [0:1061, 1:805]
+  Client 2 → [0:1355, 1:1241]
+  Client 3 → [0:1269, 1:1040]
+  Client 4 → [0:602, 1:661]
+
+Task 2:
+  Client 0 → [0:741, 1:1001]
+  Client 1 → [0:880, 1:1197]
+  Client 2 → [0:555, 1:881]
+  Client 3 → [0:1864, 1:664]
+  Client 4 → [0:960, 1:1257]
+
+Task 3:
+  Client 0 → [0:1096, 1:1178]
+  Client 1 → [0:1049, 1:725]
+  Client 2 → [0:1416, 1:1211]
+  Client 3 → [0:863, 1:1109]
+  Client 4 → [0:576, 1:777]
+
+Task 4:
+  Client 0 → [0:1554, 1:1216]
+  Client 1 → [0:841, 1:1266]
+  Client 2 → [0:1114, 1:1245]
+  Client 3 → [0:686, 1:758]
+  Client 4 → [0:805, 1:515]
+
+[TEST]
+
+Task 0:
+  Client 0 → [0:197, 1:201]
+  Client 1 → [0:190, 1:187]
+  Client 2 → [0:206, 1:202]
+  Client 3 → [0:202, 1:211]
+  Client 4 → [0:205, 1:199]
+
+Task 1:
+  Client 0 → [0:228, 1:208]
+  Client 1 → [0:184, 1:213]
+  Client 2 → [0:187, 1:191]
+  Client 3 → [0:225, 1:195]
+  Client 4 → [0:176, 1:193]
+
+Task 2:
+  Client 0 → [0:201, 1:213]
+  Client 1 → [0:189, 1:218]
+  Client 2 → [0:188, 1:176]
+  Client 3 → [0:220, 1:215]
+  Client 4 → [0:202, 1:178]
+
+Task 3:
+  Client 0 → [0:179, 1:211]
+  Client 1 → [0:198, 1:206]
+  Client 2 → [0:204, 1:190]
+  Client 3 → [0:209, 1:193]
+  Client 4 → [0:210, 1:200]
+
+Task 4:
+  Client 0 → [0:187, 1:210]
+  Client 1 → [0:201, 1:208]
+  Client 2 → [0:219, 1:202]
+  Client 3 → [0:197, 1:175]
+  Client 4 → [0:196, 1:205]
+
+Task 0:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 1:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 2:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 3:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 4:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 0:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 1:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 2:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 3:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+Task 4:
+Unique labels: [0, 1]
+Total unique labels: 2
+
+========== TASK 0 ==========
+
+--- Task 0 , Comm round 0 ---
+Round time: 17m 43s
+ [Global] Mean accuracy up to task 1: 50.0 % Task accuracies: [50.0]
+[GLOBAL] Accuracy after round 0: 50.0
+
+--- Task 0 , Comm round 1 ---
+Round time: 19m 5s
+ [Global] Mean accuracy up to task 1: 50.0 % Task accuracies: [50.0]
+[GLOBAL] Accuracy after round 1: 50.0
+
+--- Task 0 , Comm round 2 ---
+Round time: 20m 6s
+ [Global] Mean accuracy up to task 1: 56.7 % Task accuracies: [56.7]
+[GLOBAL] Accuracy after round 2: 56.7
+
+--- Task 0 , Comm round 3 ---
+Round time: 20m 19s
+ [Global] Mean accuracy up to task 1: 50.65 % Task accuracies: [50.65]
+[GLOBAL] Accuracy after round 3: 50.65
+
+--- Task 0 , Comm round 4 ---
+Round time: 19m 25s
+ [Global] Mean accuracy up to task 1: 73.4 % Task accuracies: [73.4]
+[GLOBAL] Accuracy after round 4: 73.4
+
+--- Task 0 , Comm round 5 ---
+Round time: 18m 48s
+ [Global] Mean accuracy up to task 1: 86.75 % Task accuracies: [86.75]
+[GLOBAL] Accuracy after round 5: 86.75
+
+--- Task 0 , Comm round 6 ---
+Round time: 18m 45s
+ [Global] Mean accuracy up to task 1: 91.95 % Task accuracies: [91.95]
+[GLOBAL] Accuracy after round 6: 91.95
+
+--- Task 0 , Comm round 7 ---
+Round time: 18m 41s
+ [Global] Mean accuracy up to task 1: 92.95 % Task accuracies: [92.95]
+[GLOBAL] Accuracy after round 7: 92.95
+
+--- Task 0 , Comm round 8 ---
+Round time: 14m 0s
+ [Global] Mean accuracy up to task 1: 94.2 % Task accuracies: [94.2]
+[GLOBAL] Accuracy after round 8: 94.2
+
+--- Task 0 , Comm round 9 ---
+Round time: 11m 13s
+ [Global] Mean accuracy up to task 1: 95.2 % Task accuracies: [95.2]
+[GLOBAL] Accuracy after round 9: 95.2
+ [Global] Mean accuracy up to task 1: 95.2 % Task accuracies: [95.2]
+Task 1 time: 2h 58m
+[DEBUG] Accuracy after task 0: 95.2
+================================
+
+
+========== TASK 1 ==========
+
+--- Task 1 , Comm round 0 ---
+Round time: 8m 51s
+ [Global] Mean accuracy up to task 2: 79.55 % Task accuracies: [94.75, 64.35]
+[GLOBAL] Accuracy after round 0: 79.55
+
+--- Task 1 , Comm round 1 ---
+Round time: 7m 13s
+ [Global] Mean accuracy up to task 2: 84.28 % Task accuracies: [93.6, 74.95]
+[GLOBAL] Accuracy after round 1: 84.28
+
+--- Task 1 , Comm round 2 ---
+Round time: 4m 18s
+ [Global] Mean accuracy up to task 2: 85.85 % Task accuracies: [92.45, 79.25]
+[GLOBAL] Accuracy after round 2: 85.85
+
+--- Task 1 , Comm round 3 ---
+Round time: 4m 17s
+ [Global] Mean accuracy up to task 2: 86.33 % Task accuracies: [91.7, 80.95]
+[GLOBAL] Accuracy after round 3: 86.33
+
+--- Task 1 , Comm round 4 ---
+Round time: 4m 6s
+ [Global] Mean accuracy up to task 2: 86.02 % Task accuracies: [91.3, 80.75]
+[GLOBAL] Accuracy after round 4: 86.02
+
+--- Task 1 , Comm round 5 ---
+Round time: 4m 13s
+ [Global] Mean accuracy up to task 2: 86.02 % Task accuracies: [90.5, 81.55]
+[GLOBAL] Accuracy after round 5: 86.02
+
+--- Task 1 , Comm round 6 ---
+Round time: 4m 13s
+ [Global] Mean accuracy up to task 2: 86.65 % Task accuracies: [90.75, 82.55]
+[GLOBAL] Accuracy after round 6: 86.65
+
+--- Task 1 , Comm round 7 ---
+Round time: 4m 15s
+ [Global] Mean accuracy up to task 2: 87.2 % Task accuracies: [90.75, 83.65]
+[GLOBAL] Accuracy after round 7: 87.2
+
+--- Task 1 , Comm round 8 ---
+Round time: 4m 16s
+ [Global] Mean accuracy up to task 2: 87.12 % Task accuracies: [90.8, 83.45]
+[GLOBAL] Accuracy after round 8: 87.12
+
+--- Task 1 , Comm round 9 ---
+Round time: 4m 15s
+ [Global] Mean accuracy up to task 2: 86.92 % Task accuracies: [90.85, 83.0]
+[GLOBAL] Accuracy after round 9: 86.92
+ [Global] Mean accuracy up to task 2: 86.92 % Task accuracies: [90.85, 83.0]
+Task 2 time: 50m 15s
+[DEBUG] Accuracy after task 1: 86.92
+================================
+
+
+========== TASK 2 ==========
+
+--- Task 2 , Comm round 0 ---
+Round time: 4m 15s
+ [Global] Mean accuracy up to task 3: 83.97 % Task accuracies: [91.0, 82.05, 78.85]
+[GLOBAL] Accuracy after round 0: 83.97
+
+--- Task 2 , Comm round 1 ---
+Round time: 4m 18s
+ [Global] Mean accuracy up to task 3: 84.42 % Task accuracies: [89.4, 78.65, 85.2]
+[GLOBAL] Accuracy after round 1: 84.42
+
+--- Task 2 , Comm round 2 ---
+Round time: 4m 18s
+ [Global] Mean accuracy up to task 3: 84.43 % Task accuracies: [89.6, 76.0, 87.7]
+[GLOBAL] Accuracy after round 2: 84.43
+
+--- Task 2 , Comm round 3 ---
+Round time: 4m 19s
+ [Global] Mean accuracy up to task 3: 83.97 % Task accuracies: [88.6, 74.55, 88.75]
+[GLOBAL] Accuracy after round 3: 83.97
+
+--- Task 2 , Comm round 4 ---
+Round time: 4m 18s
+ [Global] Mean accuracy up to task 3: 84.1 % Task accuracies: [89.0, 73.5, 89.8]
+[GLOBAL] Accuracy after round 4: 84.1
+
+--- Task 2 , Comm round 5 ---
+Round time: 4m 18s
+ [Global] Mean accuracy up to task 3: 84.0 % Task accuracies: [89.1, 73.0, 89.9]
+[GLOBAL] Accuracy after round 5: 84.0
+
+--- Task 2 , Comm round 6 ---
+Round time: 4m 19s
+ [Global] Mean accuracy up to task 3: 84.18 % Task accuracies: [88.95, 73.35, 90.25]
+[GLOBAL] Accuracy after round 6: 84.18
+
+--- Task 2 , Comm round 7 ---
+Round time: 4m 19s
+ [Global] Mean accuracy up to task 3: 83.93 % Task accuracies: [88.4, 72.7, 90.7]
+[GLOBAL] Accuracy after round 7: 83.93
+
+--- Task 2 , Comm round 8 ---
+Round time: 4m 19s
+ [Global] Mean accuracy up to task 3: 83.68 % Task accuracies: [87.85, 72.55, 90.65]
+[GLOBAL] Accuracy after round 8: 83.68
+
+--- Task 2 , Comm round 9 ---
+Round time: 4m 19s
+ [Global] Mean accuracy up to task 3: 83.57 % Task accuracies: [87.45, 72.6, 90.65]
+[GLOBAL] Accuracy after round 9: 83.57
+ [Global] Mean accuracy up to task 3: 83.57 % Task accuracies: [87.45, 72.6, 90.65]
+Task 3 time: 43m 25s
+[DEBUG] Accuracy after task 2: 83.57
+================================
+
+
+========== TASK 3 ==========
+
+--- Task 3 , Comm round 0 ---
+Round time: 4m 37s
+ [Global] Mean accuracy up to task 4: 84.76 % Task accuracies: [87.8, 72.25, 89.95, 89.05]
+[GLOBAL] Accuracy after round 0: 84.76
+
+--- Task 3 , Comm round 1 ---
+Round time: 4m 36s
+ [Global] Mean accuracy up to task 4: 85.09 % Task accuracies: [87.3, 71.7, 87.75, 93.6]
+[GLOBAL] Accuracy after round 1: 85.09
+
+--- Task 3 , Comm round 2 ---
+Round time: 4m 38s
+ [Global] Mean accuracy up to task 4: 85.46 % Task accuracies: [88.1, 72.0, 86.75, 95.0]
+[GLOBAL] Accuracy after round 2: 85.46
+
+--- Task 3 , Comm round 3 ---
+Round time: 4m 7s
+ [Global] Mean accuracy up to task 4: 85.02 % Task accuracies: [88.3, 70.4, 85.6, 95.8]
+[GLOBAL] Accuracy after round 3: 85.02
+
+--- Task 3 , Comm round 4 ---
+Round time: 4m 7s
+ [Global] Mean accuracy up to task 4: 84.92 % Task accuracies: [88.25, 70.75, 84.65, 96.05]
+[GLOBAL] Accuracy after round 4: 84.92
+
+--- Task 3 , Comm round 5 ---
+Round time: 4m 7s
+ [Global] Mean accuracy up to task 4: 84.45 % Task accuracies: [88.4, 70.2, 83.1, 96.1]
+[GLOBAL] Accuracy after round 5: 84.45
+
+--- Task 3 , Comm round 6 ---
+Round time: 4m 10s
+ [Global] Mean accuracy up to task 4: 84.45 % Task accuracies: [88.95, 70.4, 82.45, 96.0]
+[GLOBAL] Accuracy after round 6: 84.45
+
+--- Task 3 , Comm round 7 ---
+Round time: 4m 5s
+ [Global] Mean accuracy up to task 4: 84.28 % Task accuracies: [88.8, 70.75, 80.95, 96.6]
+[GLOBAL] Accuracy after round 7: 84.28
+
+--- Task 3 , Comm round 8 ---
+Round time: 4m 11s
+ [Global] Mean accuracy up to task 4: 84.47 % Task accuracies: [88.0, 71.0, 82.3, 96.6]
+[GLOBAL] Accuracy after round 8: 84.47
+
+--- Task 3 , Comm round 9 ---
+Round time: 4m 10s
+ [Global] Mean accuracy up to task 4: 83.83 % Task accuracies: [86.8, 70.15, 81.8, 96.55]
+[GLOBAL] Accuracy after round 9: 83.83
+ [Global] Mean accuracy up to task 4: 83.83 % Task accuracies: [86.8, 70.15, 81.8, 96.55]
+Task 4 time: 43m 13s
+[DEBUG] Accuracy after task 3: 83.83
+================================
+
+
+========== TASK 4 ==========
+
+--- Task 4 , Comm round 0 ---
+Round time: 4m 11s
+ [Global] Mean accuracy up to task 5: 85.18 % Task accuracies: [89.1, 71.85, 80.3, 96.0, 88.65]
+[GLOBAL] Accuracy after round 0: 85.18
+
+--- Task 4 , Comm round 1 ---
+Round time: 4m 13s
+ [Global] Mean accuracy up to task 5: 85.53 % Task accuracies: [89.5, 71.85, 78.6, 95.05, 92.65]
+[GLOBAL] Accuracy after round 1: 85.53
+
+--- Task 4 , Comm round 2 ---
+Round time: 4m 10s
+ [Global] Mean accuracy up to task 5: 85.1 % Task accuracies: [89.65, 71.55, 76.1, 94.1, 94.1]
+[GLOBAL] Accuracy after round 2: 85.1
+
+--- Task 4 , Comm round 3 ---
+Round time: 4m 9s
+ [Global] Mean accuracy up to task 5: 85.74 % Task accuracies: [89.6, 72.9, 77.2, 93.45, 95.55]
+[GLOBAL] Accuracy after round 3: 85.74
+
+--- Task 4 , Comm round 4 ---
+Round time: 4m 10s
+ [Global] Mean accuracy up to task 5: 85.78 % Task accuracies: [89.7, 72.7, 77.95, 92.55, 96.0]
+[GLOBAL] Accuracy after round 4: 85.78
+
+--- Task 4 , Comm round 5 ---
+Round time: 4m 7s
+ [Global] Mean accuracy up to task 5: 85.63 % Task accuracies: [90.6, 71.75, 77.8, 92.05, 95.95]
+[GLOBAL] Accuracy after round 5: 85.63
+
+--- Task 4 , Comm round 6 ---
+Round time: 6m 26s
+ [Global] Mean accuracy up to task 5: 84.82 % Task accuracies: [89.8, 71.6, 75.35, 91.1, 96.25]
+[GLOBAL] Accuracy after round 6: 84.82
+
+--- Task 4 , Comm round 7 ---
+Round time: 28m 29s
+ [Global] Mean accuracy up to task 5: 85.11 % Task accuracies: [89.6, 72.1, 76.95, 90.55, 96.35]
+[GLOBAL] Accuracy after round 7: 85.11
+
+--- Task 4 , Comm round 8 ---
+Round time: 29m 37s
+ [Global] Mean accuracy up to task 5: 85.07 % Task accuracies: [89.1, 72.35, 77.2, 90.25, 96.45]
+[GLOBAL] Accuracy after round 8: 85.07
+
+--- Task 4 , Comm round 9 ---
+Round time: 31m 47s
+ [Global] Mean accuracy up to task 5: 84.91 % Task accuracies: [89.8, 71.7, 76.5, 90.25, 96.3]
+[GLOBAL] Accuracy after round 9: 84.91
+ [Global] Mean accuracy up to task 5: 84.91 % Task accuracies: [89.8, 71.7, 76.5, 90.25, 96.3]
+Task 5 time: 2h 2m
+[DEBUG] Accuracy after task 4: 84.91
+================================
+
+
+Total training time: 7h 17m
