@@ -15,7 +15,7 @@ in_channels = {
 }
 inp_size = {
     "mnist": 28, "KMNIST": 28, "EMNIST": 28, "FashionMNIST": 28, "SVHN": 32,
-    "seq-cifar10": 32, "seq-cifar100": 32, "CINIC10": 32, "seq-tinyimagenet": 224,
+    "seq-cifar10": 32, "seq-cifar100": 32, "CINIC10": 32, "seq-tinyimagenet": 64,
     "imagenet100": 224, "imagenet1000": 224,
     "bloodmnist": 28, "tissuemnist": 28, "pathmnist": 28,
     "organamnist": 28, "organcmnist": 28, "organsmnist": 28,
