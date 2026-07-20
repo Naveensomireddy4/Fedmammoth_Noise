@@ -8,20 +8,6 @@ import sys
 from _datasets import register_dataset
 from _datasets._utils import BaseDataset
 from utils.global_consts import DATASET_PATH
-from kornia import augmentation as K
-
-TRANSFORMS = {
-    "default_train" : K.AugmentationSequential(
-        K.RandomResizedCrop(size=(224, 224), resample="bicubic"),
-        K.RandomHorizontalFlip(),
-        K.Normalize(mean=(0.4802, 0.4480, 0.3975), std=(0.2770, 0.2691, 0.2821)),
-    ),
-    "default_test" : K.AugmentationSequential(
-        K.Resize(size=(256, 256), resample="bicubic"),
-        K.CenterCrop(size=(224, 224)),
-        K.Normalize(mean=(0.4802, 0.4480, 0.3975), std=(0.2770, 0.2691, 0.2821)),
-    ),
-}
 
 
 class MyTinyImageNet(Dataset):
@@ -128,11 +114,6 @@ class MyTinyImageNet(Dataset):
     def __getitem__(self, index):
         img, target = self.data[index], self.targets[index]
 
-        # doing this to have a PIL Image for the transforms
-        # img = Image.fromarray(np.uint8(255 * img))
-        # Altermatively, we can use the following line to convert the image to PIL format
-        # transform = transforms.Compose([transforms.ToPILImage(), self.TRANSFORM])
-
         if self.transform is not None:
             img = self.transform(img)
 
@@ -144,24 +125,14 @@ class SequentialTinyImageNet(BaseDataset):
     N_CLASSES_PER_TASK = 20
     N_TASKS = 10
 
-    MEAN, STD = (0.4802, 0.4480, 0.3975), (0.2770, 0.2691, 0.2821)
-    """
-    TRANSFORM = transforms.Compose(
-        [
-            transforms.RandomCrop(64, padding=4),
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            transforms.Normalize(MEAN, STD),
-        ]
-    )
-    """
+    # matches the "tinyimagenet" entry from get_statistics()
+    MEAN, STD = (0.4802, 0.4481, 0.3975), (0.2302, 0.2265, 0.2262)
+
     normalize = transforms.Normalize(mean=MEAN, std=STD)
+
+    # simple pipeline: ToTensor -> Normalize, native 64x64, no resize/crop/flip
     TRAIN_TRANSFORM = transforms.Compose(
         [
-            transforms.ToTensor(),
-            transforms.ToPILImage(),
-            transforms.RandomResizedCrop(size=(224, 224), interpolation=3),
-            transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
             normalize,
         ]
@@ -169,35 +140,22 @@ class SequentialTinyImageNet(BaseDataset):
     TEST_TRANSFORM = transforms.Compose(
         [
             transforms.ToTensor(),
-            transforms.ToPILImage(),
-            transforms.Resize(256, interpolation=3),
-            transforms.CenterCrop(224),
-            transforms.ToTensor(),
             normalize,
         ]
     )
 
-    BASE_TRANSFORM = transforms.Compose(
-        [
-            transforms.Resize(size=(224, 224), interpolation=3),
-            transforms.ToTensor(),
-        ]
-    )
-
-    INPUT_SHAPE = (224, 224, 3)
+    INPUT_SHAPE = (64, 64, 3)
 
     def train_transform(self, x):
-        return TRANSFORMS[self.train_transf](x)
+        return self.TRAIN_TRANSFORM(x)
 
     def test_transform(self, x):
-        return TRANSFORMS[self.test_transf](x)
-    
+        return self.TEST_TRANSFORM(x)
+
     def __init__(
         self,
         num_clients: int,
         batch_size: int,
-        train_transform: str = "default_train",
-        test_transform: str = "default_test",
         partition_mode: str = "distribution",
         distribution_alpha: float = 0.05,
         class_quantity: int = 4,
@@ -209,8 +167,6 @@ class SequentialTinyImageNet(BaseDataset):
             distribution_alpha,
             class_quantity,
         )
-        self.train_transf = train_transform
-        self.test_transf = test_transform
 
         for split in ["train", "test"]:
             dataset = MyTinyImageNet(
@@ -239,4 +195,3 @@ class SequentialTinyImageNet(BaseDataset):
 class JointTinyImageNet(SequentialTinyImageNet):
     N_CLASSES_PER_TASK = 200
     N_TASKS = 1
-
