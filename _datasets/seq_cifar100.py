@@ -6,27 +6,35 @@ from utils.global_consts import DATASET_PATH
 import numpy as np
 from kornia import augmentation as K
 
+
 TRANSFORMS = {
     "default_train": K.AugmentationSequential(
-        K.Normalize(mean=(0.5071, 0.4867, 0.4408), std=(0.2675, 0.2565, 0.2761)),
+        K.Normalize(
+            mean=(0.5071, 0.4867, 0.4408),
+            std=(0.2675, 0.2565, 0.2761),
+        ),
     ),
+
     "default_test": K.AugmentationSequential(
-        K.Normalize(mean=(0.5071, 0.4867, 0.4408), std=(0.2675, 0.2565, 0.2761)),
-    )
+        K.Normalize(
+            mean=(0.5071, 0.4867, 0.4408),
+            std=(0.2675, 0.2565, 0.2761),
+        ),
+    ),
 }
+
 
 @register_dataset("seq-cifar100")
 class SequentialCifar100(BaseDataset):
     N_CLASSES_PER_TASK = 20
     N_TASKS = 5
-    MEAN_NORM = (0.5071, 0.4867, 0.4408)
-    STD_NORM  = (0.2675, 0.2565, 0.2761)
 
-    BASE_TRANSFORM = transforms.Compose(
-        [
-            transforms.ToTensor(),
-        ]
-    )
+    MEAN_NORM = (0.5071, 0.4867, 0.4408)
+    STD_NORM = (0.2675, 0.2565, 0.2761)
+
+    BASE_TRANSFORM = transforms.Compose([
+        transforms.ToTensor(),
+    ])
 
     INPUT_SHAPE = (32, 32, 3)
 
@@ -37,7 +45,7 @@ class SequentialCifar100(BaseDataset):
         train_transform: str = "default_train",
         test_transform: str = "default_test",
         partition_mode: str = "distribution",
-        distribution_alpha: float = 0.5,   # second code uses 10.0 as default, 0.5 is more heterogeneous
+        distribution_alpha: float = 0.5,
         class_quantity: int = 2,
     ):
         super().__init__(
@@ -47,20 +55,27 @@ class SequentialCifar100(BaseDataset):
             distribution_alpha,
             class_quantity,
         )
+
         self.train_transf = train_transform
         self.test_transf = test_transform
 
         for split in ["train", "test"]:
             dataset = CIFAR100(
                 DATASET_PATH,
-                train=True if split == "train" else False,
+                train=(split == "train"),
                 download=True,
                 transform=self.BASE_TRANSFORM,
             )
+
             dataset.targets = np.array(dataset.targets).astype(np.int64)
             setattr(self, f"{split}_dataset", dataset)
 
-        self._split_fcil(num_clients, partition_mode, distribution_alpha, class_quantity)
+        self._split_fcil(
+            num_clients,
+            partition_mode,
+            distribution_alpha,
+            class_quantity,
+        )
 
         for split in ["train", "test"]:
             getattr(self, f"{split}_dataset").data = None
